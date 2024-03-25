@@ -1,6 +1,10 @@
 package com.mvpsales.pokemonviewer.di
 
 import com.mvpsales.pokemonviewer.api.PokemonService
+import com.mvpsales.pokemonviewer.usecase.GetPokemonDetailsUseCase
+import com.mvpsales.pokemonviewer.usecase.GetPokemonDetailsUseCaseImpl
+import com.mvpsales.pokemonviewer.usecase.GetPokemonListUseCase
+import com.mvpsales.pokemonviewer.usecase.GetPokemonListUseCaseImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,4 +33,12 @@ object AppModule {
     fun providePokemonService(retrofit: Retrofit): PokemonService {
         return retrofit.create(PokemonService::class.java)
     }
+
+    @Provides
+    fun provideGetPokemonListUseCase(pokemonService: PokemonService): GetPokemonListUseCase =
+        GetPokemonListUseCaseImpl(pokemonService)
+
+    @Provides
+    fun provideGetPokemonDetailsUseCase(pokemonService: PokemonService): GetPokemonDetailsUseCase =
+        GetPokemonDetailsUseCaseImpl(pokemonService)
 }

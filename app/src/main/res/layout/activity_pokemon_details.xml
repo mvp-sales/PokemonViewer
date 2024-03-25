@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/Theme.PokemonViewer"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+    <ImageView
+        android:id="@+id/pokemon_iv"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        tools:src="@drawable/ic_launcher_background"
+        android:layout_margin="16dp"
+        />
+
+    <TextView
+        android:id="@+id/pokemon_name_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        tools:text="Bulbasaur"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:id="@+id/pokemon_id_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="1"
+        android:layout_marginBottom="8dp"
+        />
+
+    <TextView
+        android:id="@+id/pokemon_height_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        tools:text="6"
+        />
+
+    <TextView
+        android:id="@+id/pokemon_weight_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        tools:text="5"
+        />
+
+    <TextView
+        android:id="@+id/pokemon_baseexperience_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        tools:text="32"
+        />
+
+    <TextView
+        android:id="@+id/pokemon_moves_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingHorizontal="16dp"
+        tools:text="thundershock, slap"
+        />
+
+    <TextView
+        android:id="@+id/pokemon_types_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingHorizontal="16dp"
+        tools:text="dragon, fairy"
+        />
+</LinearLayout>

@@ -7,10 +7,14 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetPokemonListUseCase @Inject constructor(
+interface GetPokemonListUseCase {
+    fun getPokemonList(offset: Int): Flow<List<PokemonListItem>>
+}
+
+class GetPokemonListUseCaseImpl @Inject constructor(
     private val service: PokemonService
-) {
-    fun getPokemonList(offset: Int): Flow<List<PokemonListItem>> = flow {
+): GetPokemonListUseCase {
+    override fun getPokemonList(offset: Int): Flow<List<PokemonListItem>> = flow {
         emit(service.getPokemons(offset).results.map { it.toModel() })
     }
 }
