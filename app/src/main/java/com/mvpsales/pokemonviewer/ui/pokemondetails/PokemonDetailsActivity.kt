@@ -1,17 +1,14 @@
 package com.mvpsales.pokemonviewer.ui.pokemondetails
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
 import coil.transform.CircleCropTransformation
-import com.mvpsales.pokemonviewer.databinding.ActivityMainBinding
+import com.mvpsales.pokemonviewer.R
 import com.mvpsales.pokemonviewer.databinding.ActivityPokemonDetailsBinding
-import com.mvpsales.pokemonviewer.ui.pokelist.PokemonListAdapter
 import com.mvpsales.pokemonviewer.util.capitalized
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -38,12 +35,12 @@ class PokemonDetailsActivity: AppCompatActivity() {
                 viewModel.getPokemonDetails(it).collect {
                     binding.apply {
                         pokemonNameTv.text = it.name.capitalized()
-                        pokemonIdTv.text = "ID: ${it.id}"
-                        pokemonHeightTv.text = "Height: ${it.height}"
-                        pokemonWeightTv.text = "Weight: ${it.weight}"
-                        pokemonBaseexperienceTv.text = "Base experience: ${it.baseExperience}"
-                        pokemonMovesTv.text = "Moves: ${it.moves}"
-                        pokemonTypesTv.text = "Types: ${it.types}"
+                        pokemonIdTv.text = getString(R.string.pokemon_id, it.id)
+                        pokemonHeightTv.text = getString(R.string.pokemon_height, it.height)
+                        pokemonWeightTv.text = getString(R.string.pokemon_weight, it.weight)
+                        pokemonBaseexperienceTv.text = getString(R.string.pokemon_baseexperience, it.baseExperience)
+                        pokemonMovesTv.text = getString(R.string.pokemon_moves, it.moves)
+                        pokemonTypesTv.text = getString(R.string.pokemon_types, it.types)
                         pokemonIv.load(it.imageUrl) {
                             crossfade(true)
                             transformations(CircleCropTransformation())

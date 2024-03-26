@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PokemonViewer</string>
+    <string name="pokemon_id">ID: %d</string>
+    <string name="pokemon_height">Height: %d</string>
+    <string name="pokemon_weight">Weight: %d</string>
+    <string name="pokemon_baseexperience">Base experience: %d</string>
+    <string name="pokemon_moves">Moves: %s</string>
+    <string name="pokemon_types">Types: %s</string>
 </resources>

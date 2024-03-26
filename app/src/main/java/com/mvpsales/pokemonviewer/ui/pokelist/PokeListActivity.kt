@@ -17,7 +17,6 @@ import com.mvpsales.pokemonviewer.ui.pokemondetails.PokemonDetailsActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
-
 @AndroidEntryPoint
 class PokeListActivity : AppCompatActivity() {
 
@@ -61,6 +60,7 @@ class PokeListActivity : AppCompatActivity() {
                 adapter.setPokemonList(it)
             }
         }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

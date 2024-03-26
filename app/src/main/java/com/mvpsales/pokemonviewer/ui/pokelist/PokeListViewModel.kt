@@ -1,11 +1,11 @@
 package com.mvpsales.pokemonviewer.ui.pokelist
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.mvpsales.pokemonviewer.usecase.GetPokemonListUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
@@ -29,7 +29,9 @@ class PokeListViewModel @Inject constructor(
                 _isLoading = true
             }
             .onEach {
-                _isLoading = false
                 _currentOffset += it.size
+            }
+            .onCompletion {
+                _isLoading = false
             }
 }

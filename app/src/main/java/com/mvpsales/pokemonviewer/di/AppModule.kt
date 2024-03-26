@@ -20,13 +20,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
-        return Retrofit.Builder()
+    fun provideRetrofit(): Retrofit =
+        Retrofit.Builder()
             .baseUrl("https://pokeapi.co")
             .addConverterFactory(MoshiConverterFactory.create())
             .client(OkHttpClient())
             .build()
-    }
 
     @Provides
     @Singleton
